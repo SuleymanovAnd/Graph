@@ -7,9 +7,9 @@ set(SOURCE
 
         )
 set(INCLUDE
-        ${MY_DIRECTORY}/
-        ${MY_DIRECTORY}/
-        ${MY_DIRECTORY}/
+        ${MY_DIRECTORY}/ListGraph.h
+        ${MY_DIRECTORY}/MatrixGraph.h
+        ${MY_DIRECTORY}/igraph.h
         ${MY_DIRECTORY}/
         )
 
