@@ -4,7 +4,8 @@ set (MY_DIRECTORY ${CMAKE_SOURCE_DIR}/include)
 
 set(SOURCE
         main.cpp
-
+        ListGraph.cpp
+        MatrixGraph.cpp
         )
 set(INCLUDE
         ${MY_DIRECTORY}/ListGraph.h
