@@ -36,5 +36,7 @@ int main() {
     mg->GetPrevVertices(1,vertPrev);
     mg->show_graph();
 
+delete mg;
+delete lg;
 
 }
