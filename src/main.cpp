@@ -17,5 +17,9 @@ int main() {
 
     MatrixGraph* mg = new MatrixGraph();
     mg->connect_nodes(1,2);
-
+    mg->connect_nodes(2,1);
+    mg->connect_nodes(3,3);
+    mg->connect_nodes(5,1);
+    mg->connect_nodes(2,8);
+    mg->show_graph();
 }

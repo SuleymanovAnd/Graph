@@ -9,6 +9,7 @@ ListGraph& ListGraph::operator = (const ListGraph &oth){
     if (!oth.listGraph.empty()){
         listGraph = oth.listGraph;
     }
+    return *this;
 };
 
 void ListGraph::connect_nodes (int source_node,int connected_node){
