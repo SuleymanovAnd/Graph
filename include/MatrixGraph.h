@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include "igraph.h"
+#include <set>
 
 class MatrixGraph:public IGraph{
    std::vector<std::map <int,int>> matrixGraph;

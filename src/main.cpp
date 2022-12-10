@@ -14,13 +14,27 @@ int main() {
     int nodeCount = lg->VerticesCount();
     std::cout << nodeCount<<std::endl;
     lg->show_graph();
-    lg->show_graph();
+    std::vector<int> vertNext;
+    std::vector<int> vertPrev;
+    lg->GetNextVertices(1,vertNext);
+    lg->GetPrevVertices(2,vertPrev);
+
+
 
     IGraph* mg = new MatrixGraph();
     mg->AddEdge(1,2);
+    mg->AddEdge(1,4);
     mg->AddEdge(2,1);
     mg->AddEdge(3,3);
     mg->AddEdge(5,1);
-    mg->AddEdge(2,8);
+    mg->AddEdge(2,4);
+    nodeCount = mg->VerticesCount();
+    std::cout << nodeCount<<std::endl;
+    vertNext.clear();
+    vertPrev.clear();
+    mg->GetNextVertices(1,vertNext);
+    mg->GetPrevVertices(1,vertPrev);
     mg->show_graph();
+
+
 }

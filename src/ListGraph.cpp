@@ -57,8 +57,28 @@ void ListGraph::show_graph (){
     std::cout <<std::endl;
 }
 void ListGraph:: GetNextVertices(int vertex, std::vector<int> &vertices){
+    std::map<int,std::set <int>>::iterator it;
+    std::set<int>::iterator iSet;
+
+    for(it = listGraph.begin(); it != listGraph.end(); it++){
+        std::set<int> mySet = it->second;
+        std::set<int>::iterator iSet;
+        for (iSet = mySet.begin(); iSet != mySet.end();iSet++ ){
+            if (it->first == vertex) {vertices.push_back(*iSet);}
+        }
+    }
 
 } // Для конкретной вершины метод выводит в вектор “вершины” все вершины, в которые можно дойти по ребру из данной
 void ListGraph::GetPrevVertices(int vertex, std::vector<int> &vertices){
+    std::map<int,std::set <int>>::iterator it;
+    std::set<int>::iterator iSet;
+
+    for(it = listGraph.begin(); it != listGraph.end(); it++){
+        std::set<int> mySet = it->second;
+        std::set<int>::iterator iSet;
+        for (iSet = mySet.begin(); iSet != mySet.end();iSet++ ){
+            if (*iSet ==vertex) {vertices.push_back(it->first);}
+        }
+    }
 
 }

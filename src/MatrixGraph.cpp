@@ -84,24 +84,39 @@ void MatrixGraph::show_graph() {
 }
 
 int MatrixGraph:: VerticesCount () {
-    int count = 0;
+    std::set <int> count;
         for (int i = 0; i <matrixGraph.size();i++){
 
             std::map<int,int> temp = matrixGraph[i];
             auto it = temp.begin();
-            if(i!=0){
                 for (it = temp.begin();it!=temp.end();++it){
-                    if(it->second == 1)  ++count;
+                    if(it->second == 1) {count.emplace(i); count.emplace(it->first);} ;
                 }
-            }
 
         }
-        return count;
+        return count.size();
 }
 
 void MatrixGraph:: GetNextVertices(int vertex, std::vector<int> &vertices)  {
 
+    for(int i =0;i<matrixGraph.size();i++){
+
+        std::map<int,int> temp = matrixGraph[i];
+        auto it = temp.begin();
+            for (it;it!=temp.end();++it){
+              if(i == vertex && it->second == 1) {vertices.push_back (it->first+1);}
+            }
+
+    }
 } // Для конкретной вершины метод выводит в вектор “вершины” все вершины, в которые можно дойти по ребру из данной
 void MatrixGraph::GetPrevVertices(int vertex, std::vector<int> &vertices) {
+    for(int i =0;i<matrixGraph.size();i++){
 
+        std::map<int,int> temp = matrixGraph[i];
+        auto it = temp.begin();
+        for (it;it!=temp.end();++it){
+            if(it->first == vertex-1 && it->second == 1) {vertices.push_back (i+1);}
+        }
+
+    }
 } ;
