@@ -6,6 +6,7 @@ set(SOURCE
         main.cpp
         ListGraph.cpp
         MatrixGraph.cpp
+        Igraph.cpp
         )
 set(INCLUDE
         ${MY_DIRECTORY}/ListGraph.h

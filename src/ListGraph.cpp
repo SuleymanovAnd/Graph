@@ -4,6 +4,7 @@ ListGraph::ListGraph(){};
 ListGraph::~ListGraph()= default;
 ListGraph::ListGraph(const ListGraph &oth){
     listGraph = oth.listGraph;
+
 };
 ListGraph& ListGraph::operator = (const ListGraph &oth){
     if (!oth.listGraph.empty()){
@@ -12,17 +13,17 @@ ListGraph& ListGraph::operator = (const ListGraph &oth){
     return *this;
 };
 
-void ListGraph::connect_nodes (int source_node,int connected_node){
+void ListGraph::AddEdge (int source_node,int connected_node){
     listGraph[source_node].insert(connected_node);
    // listGraph[connected_node].insert(source_node);  //- для не ориентированного графа
 
 }
-void ListGraph::delete_nodes (int source_node, int delete_node){
+void ListGraph::deleteEdge (int source_node, int delete_node){
     listGraph[source_node].erase(delete_node);
    // listGraph[delete_node].erase(source_node);  // - для не ориентированного графа
 }
 
-int ListGraph::nodesCount() {
+int ListGraph::VerticesCount()  {
 
     int count = 0;
     count = listGraph.size();
@@ -54,4 +55,10 @@ void ListGraph::show_graph (){
         std::cout << "."<<std::endl;
     }
     std::cout <<std::endl;
+}
+void ListGraph:: GetNextVertices(int vertex, std::vector<int> &vertices){
+
+} // Для конкретной вершины метод выводит в вектор “вершины” все вершины, в которые можно дойти по ребру из данной
+void ListGraph::GetPrevVertices(int vertex, std::vector<int> &vertices){
+
 }

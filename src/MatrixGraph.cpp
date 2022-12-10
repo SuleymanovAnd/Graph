@@ -11,7 +11,7 @@ MatrixGraph& MatrixGraph::operator = (const MatrixGraph &oth){
     return *this;
 }
 
-void MatrixGraph::connect_nodes (int source_nodes, int connected_nodes){
+void MatrixGraph::AddEdge (int source_nodes, int connected_nodes){
     // увеличиваем вектор до мах номера узла
    if (matrixGraph.size() <source_nodes||matrixGraph.size()<connected_nodes){
        if (matrixGraph.size()<connected_nodes){
@@ -82,3 +82,26 @@ void MatrixGraph::show_graph() {
         std::cout <<std::endl;
     }
 }
+
+int MatrixGraph:: VerticesCount () {
+    int count = 0;
+        for (int i = 0; i <matrixGraph.size();i++){
+
+            std::map<int,int> temp = matrixGraph[i];
+            auto it = temp.begin();
+            if(i!=0){
+                for (it = temp.begin();it!=temp.end();++it){
+                    if(it->second == 1)  ++count;
+                }
+            }
+
+        }
+        return count;
+}
+
+void MatrixGraph:: GetNextVertices(int vertex, std::vector<int> &vertices)  {
+
+} // Для конкретной вершины метод выводит в вектор “вершины” все вершины, в которые можно дойти по ребру из данной
+void MatrixGraph::GetPrevVertices(int vertex, std::vector<int> &vertices) {
+
+} ;
